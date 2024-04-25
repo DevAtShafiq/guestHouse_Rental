@@ -19,10 +19,10 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private LocalDate bookingDate;
+    private String bookingNumber;
     @ManyToOne
     @JoinColumn(name = "guest_id")
     private Guest guest;
-    private String bookingNumber;
 
 
 
