@@ -2,11 +2,12 @@ package com.example.guesthouse.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/guest")
 public class GuestController {
 
     final GuestService guestService;
@@ -16,10 +17,22 @@ public class GuestController {
         this.guestService = guestService;
     }
 
-    @PostMapping("/guest")
-     public ResponseEntity<String> showGuest(@RequestBody Guest guest ){
+    @PostMapping("/add")
+     public ResponseEntity<String> addGuest(@RequestBody Guest guest ){
 
         guestService.createGuest(guest);
-        return ResponseEntity.ok("successfully inserted");
+        return ResponseEntity.ok(guest.getId()+" "+guest.getName());
     }
+
+    @GetMapping("/show-all")
+     public List<Guest> addGuest( ){
+
+       return guestService.showAllGuest();
+
+    }
+
+
+
+
+
 }

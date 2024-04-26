@@ -2,11 +2,12 @@ package com.example.guesthouse.guest.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/book")
 public class BookingController {
 
     final BookingService bookingService;
@@ -17,14 +18,23 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    @PostMapping("/book")
+    @PostMapping("/make")
     public ResponseEntity<String> makeBooking(@RequestBody Booking booking) {
 
         bookingService.makeBooking(booking);
 
-        return ResponseEntity.ok("Booking is successfully completed"
+        return ResponseEntity.ok(
+                "Booking is successfully completed"
                 +" "+"Long Id:"+" "+booking.getId()
                 +" Booking Id:"
                 +booking.getBookingNumber());
+    }
+
+
+
+    @GetMapping("/show-all")
+    public List<Booking> showBookings( ){
+
+        return bookingService.showALlBooking();
     }
 }

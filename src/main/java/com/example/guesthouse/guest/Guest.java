@@ -3,15 +3,12 @@ package com.example.guesthouse.guest;
 import com.example.guesthouse.guest.booking.Booking;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
+import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Getter
 @Setter
 @Entity
@@ -30,10 +27,20 @@ public class Guest {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "guest", cascade = CascadeType.ALL)
 
-    @OneToMany(mappedBy = "guest", cascade = CascadeType.PERSIST)
-    ArrayList<Booking> bookList = new ArrayList<>();
+    List<Booking> bookingList;
 
+    public Guest() {
+    }
 
-
+    public Guest(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
+
+
+
+

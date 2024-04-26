@@ -3,6 +3,7 @@ package com.example.guesthouse.guest.booking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -18,6 +19,8 @@ public class BookingService {
 
     public void makeBooking(Booking booking) {
 
+
+        //cre
         Random random = new Random();
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -25,12 +28,18 @@ public class BookingService {
             char randChar = (char) (random.nextInt(26) + 'A');
             stringBuilder.append(randChar);
         }
-       booking.setBookingNumber(stringBuilder.toString());
+        booking.setBookingNumber(stringBuilder.toString());
 
 
         bookingRepository.save(booking);
 
 
-    }
+                                    }
 
+
+    public List<Booking> showALlBooking() {
+
+        return bookingRepository.findAll();
+
+    }
 }
