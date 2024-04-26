@@ -28,7 +28,7 @@ public class Guest {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "guest", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "guest", cascade = CascadeType.ALL,orphanRemoval = true)
 
     List<Booking> bookingList;
 
