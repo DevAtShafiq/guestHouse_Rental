@@ -1,7 +1,6 @@
 package com.example.guesthouse.guest.booking;
 
 import com.example.guesthouse.guest.Guest.Guest;
-import com.example.guesthouse.guest.GuestHouse.GuestHouse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,9 +24,7 @@ public class Booking {
     @ManyToOne
     private Guest guest;
 
-    @ManyToOne
-    @JoinColumn(name = "guesthouse_id")
-    private GuestHouse guestHouse;
+
 
 
 

@@ -22,7 +22,7 @@ public class GuestController {
      public ResponseEntity<String> addGuest(@RequestBody Guest guest ){
 
         guestService.createGuest(guest);
-        return ResponseEntity.ok(STR."\{guest.getId()} \{guest.getName()}\{HttpStatus.CREATED}");
+        return ResponseEntity.ok("HttpStatus.CREATED");
     }
 
     @GetMapping("/show-all")

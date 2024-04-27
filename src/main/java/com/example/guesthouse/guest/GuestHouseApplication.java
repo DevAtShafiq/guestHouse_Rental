@@ -1,4 +1,4 @@
-package com.example.guesthouse.guest.Guest;
+package com.example.guesthouse.guest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
