@@ -13,9 +13,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+
 @Entity
-@Table(name = "booking"
-)
 public class Booking {
     @Id
     @SequenceGenerator(name = "booking_seq", sequenceName = "booking_sequence")
@@ -26,7 +25,8 @@ public class Booking {
     @ManyToOne
     private Guest guest;
 
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "guesthouse_id")
     private GuestHouse guestHouse;
 
 
