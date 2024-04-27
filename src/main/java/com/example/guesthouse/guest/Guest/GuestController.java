@@ -1,6 +1,7 @@
-package com.example.guesthouse.guest;
+package com.example.guesthouse.guest.Guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class GuestController {
      public ResponseEntity<String> addGuest(@RequestBody Guest guest ){
 
         guestService.createGuest(guest);
-        return ResponseEntity.ok(guest.getId()+" "+guest.getName());
+        return ResponseEntity.ok(STR."\{guest.getId()} \{guest.getName()}\{HttpStatus.CREATED}");
     }
 
     @GetMapping("/show-all")

@@ -1,4 +1,4 @@
-package com.example.guesthouse.guest;
+package com.example.guesthouse.guest.Guest;
 
 import com.example.guesthouse.guest.booking.Booking;
 import com.fasterxml.jackson.annotation.JsonIgnore;

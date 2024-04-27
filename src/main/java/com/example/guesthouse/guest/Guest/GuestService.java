@@ -1,4 +1,4 @@
-package com.example.guesthouse.guest;
+package com.example.guesthouse.guest.Guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
